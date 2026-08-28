@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChatRouteImport } from './routes/chat'
+import { Route as DriverRouteImport } from './routes/driver'
+import { Route as MatrixRouteImport } from './routes/matrix'
+import { Route as OcrRouteImport } from './routes/ocr'
+import { Route as ApiDispatchDriverRouteImport } from './routes/api/dispatch-driver'
+import { Route as ApiParseOrderRouteImport } from './routes/api/parse-order'
+import { Route as ApiSaveAnnotatedDocRouteImport } from './routes/api/save-annotated-doc'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DriverRoute = DriverRouteImport.update({
+  id: '/driver',
+  path: '/driver',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MatrixRoute = MatrixRouteImport.update({
+  id: '/matrix',
+  path: '/matrix',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OcrRoute = OcrRouteImport.update({
+  id: '/ocr',
+  path: '/ocr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDispatchDriverRoute = ApiDispatchDriverRouteImport.update({
+  id: '/api/dispatch-driver',
+  path: '/api/dispatch-driver',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiParseOrderRoute = ApiParseOrderRouteImport.update({
+  id: '/api/parse-order',
+  path: '/api/parse-order',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSaveAnnotatedDocRoute = ApiSaveAnnotatedDocRouteImport.update({
+  id: '/api/save-annotated-doc',
+  path: '/api/save-annotated-doc',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chat': typeof ChatRoute
+  '/driver': typeof DriverRoute
+  '/matrix': typeof MatrixRoute
+  '/ocr': typeof OcrRoute
+  '/api/dispatch-driver': typeof ApiDispatchDriverRoute
+  '/api/parse-order': typeof ApiParseOrderRoute
+  '/api/save-annotated-doc': typeof ApiSaveAnnotatedDocRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chat': typeof ChatRoute
+  '/driver': typeof DriverRoute
+  '/matrix': typeof MatrixRoute
+  '/ocr': typeof OcrRoute
+  '/api/dispatch-driver': typeof ApiDispatchDriverRoute
+  '/api/parse-order': typeof ApiParseOrderRoute
+  '/api/save-annotated-doc': typeof ApiSaveAnnotatedDocRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chat': typeof ChatRoute
+  '/driver': typeof DriverRoute
+  '/matrix': typeof MatrixRoute
+  '/ocr': typeof OcrRoute
+  '/api/dispatch-driver': typeof ApiDispatchDriverRoute
+  '/api/parse-order': typeof ApiParseOrderRoute
+  '/api/save-annotated-doc': typeof ApiSaveAnnotatedDocRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/chat'
+    | '/driver'
+    | '/matrix'
+    | '/ocr'
+    | '/api/dispatch-driver'
+    | '/api/parse-order'
+    | '/api/save-annotated-doc'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/chat'
+    | '/driver'
+    | '/matrix'
+    | '/ocr'
+    | '/api/dispatch-driver'
+    | '/api/parse-order'
+    | '/api/save-annotated-doc'
+  id:
+    | '__root__'
+    | '/'
+    | '/chat'
+    | '/driver'
+    | '/matrix'
+    | '/ocr'
+    | '/api/dispatch-driver'
+    | '/api/parse-order'
+    | '/api/save-annotated-doc'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChatRoute: typeof ChatRoute
+  DriverRoute: typeof DriverRoute
+  MatrixRoute: typeof MatrixRoute
+  OcrRoute: typeof OcrRoute
+  ApiDispatchDriverRoute: typeof ApiDispatchDriverRoute
+  ApiParseOrderRoute: typeof ApiParseOrderRoute
+  ApiSaveAnnotatedDocRoute: typeof ApiSaveAnnotatedDocRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/driver': {
+      id: '/driver'
+      path: '/driver'
+      fullPath: '/driver'
+      preLoaderRoute: typeof DriverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/matrix': {
+      id: '/matrix'
+      path: '/matrix'
+      fullPath: '/matrix'
+      preLoaderRoute: typeof MatrixRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ocr': {
+      id: '/ocr'
+      path: '/ocr'
+      fullPath: '/ocr'
+      preLoaderRoute: typeof OcrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/dispatch-driver': {
+      id: '/api/dispatch-driver'
+      path: '/api/dispatch-driver'
+      fullPath: '/api/dispatch-driver'
+      preLoaderRoute: typeof ApiDispatchDriverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/parse-order': {
+      id: '/api/parse-order'
+      path: '/api/parse-order'
+      fullPath: '/api/parse-order'
+      preLoaderRoute: typeof ApiParseOrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/save-annotated-doc': {
+      id: '/api/save-annotated-doc'
+      path: '/api/save-annotated-doc'
+      fullPath: '/api/save-annotated-doc'
+      preLoaderRoute: typeof ApiSaveAnnotatedDocRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChatRoute: ChatRoute,
+  DriverRoute: DriverRoute,
+  MatrixRoute: MatrixRoute,
+  OcrRoute: OcrRoute,
+  ApiDispatchDriverRoute: ApiDispatchDriverRoute,
+  ApiParseOrderRoute: ApiParseOrderRoute,
+  ApiSaveAnnotatedDocRoute: ApiSaveAnnotatedDocRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
