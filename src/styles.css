@@ -71,8 +71,10 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   --shadow-glass: 0 18px 50px -20px oklch(0 0 0 / 0.75);
-  --shadow-glow-hikmat: 0 0 0 1px oklch(0.72 0.13 214 / 0.35), 0 12px 40px -18px oklch(0.72 0.13 214 / 0.6);
-  --shadow-glow-ali: 0 0 0 1px oklch(0.72 0.15 162 / 0.35), 0 12px 40px -18px oklch(0.72 0.15 162 / 0.6);
+  --shadow-glow-hikmat:
+    0 0 0 1px oklch(0.72 0.13 214 / 0.35), 0 12px 40px -18px oklch(0.72 0.13 214 / 0.6);
+  --shadow-glow-ali:
+    0 0 0 1px oklch(0.72 0.15 162 / 0.35), 0 12px 40px -18px oklch(0.72 0.15 162 / 0.6);
 }
 
 :root {

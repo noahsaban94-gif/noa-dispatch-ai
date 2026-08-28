@@ -46,7 +46,9 @@ function Dashboard() {
   const [dragId, setDragId] = useState<string | null>(null);
 
   const kpis = useMemo(() => {
-    const active = orders.filter((o) => ["בהעמסה", "בנסיעה", "שוגר בוואטסאפ"].includes(o.status)).length;
+    const active = orders.filter((o) =>
+      ["בהעמסה", "בנסיעה", "שוגר בוואטסאפ"].includes(o.status),
+    ).length;
     const scheduled = orders.filter((o) => o.slot && o.driverId).length;
     const depositBalance = DEPOSIT_BALANCE.reduce((sum, r) => sum + (r.out - r.returned), 0);
     return { active, scheduled, depositBalance, alerts: ALERTS.length };
@@ -55,9 +57,7 @@ function Dashboard() {
   function assign(orderId: string, driverId: DriverId, slot: string) {
     setOrders((prev) =>
       prev.map((o) =>
-        o.id === orderId
-          ? { ...o, driverId, slot, status: "מועד האספקה מתאפס - בבדיקה מחדש" }
-          : o,
+        o.id === orderId ? { ...o, driverId, slot, status: "מועד האספקה מתאפס - בבדיקה מחדש" } : o,
       ),
     );
   }
@@ -107,7 +107,9 @@ function Dashboard() {
       <div className="mt-4 grid gap-4 xl:grid-cols-[1.15fr_0.85fr]">
         <GlassCard>
           <div className="mb-3 flex items-center justify-between">
-            <h3 className="panel-title text-sm md:text-base">פיצול מחסנים · Warehouse Split Monitor</h3>
+            <h3 className="panel-title text-sm md:text-base">
+              פיצול מחסנים · Warehouse Split Monitor
+            </h3>
             <span className="text-[11px] text-muted-foreground">לפי סוג חומר</span>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -135,7 +137,9 @@ function Dashboard() {
                     </div>
                   </div>
                   <div className="mt-3 flex items-end justify-between">
-                    <span className={`text-3xl font-extrabold ${isHikmat ? "text-hikmat" : "text-ali"}`}>
+                    <span
+                      className={`text-3xl font-extrabold ${isHikmat ? "text-hikmat" : "text-ali"}`}
+                    >
                       {wOrders.length}
                     </span>
                     <span className="text-[11px] text-muted-foreground">הזמנות בטיפול</span>
@@ -208,7 +212,9 @@ function Dashboard() {
                           {cell ? (
                             <>
                               <div className="font-bold">{cell.id}</div>
-                              <div className="truncate text-muted-foreground">{cell.customerName}</div>
+                              <div className="truncate text-muted-foreground">
+                                {cell.customerName}
+                              </div>
                             </>
                           ) : null}
                         </div>
@@ -297,7 +303,11 @@ function Dashboard() {
                       <td className="py-2 text-muted-foreground">{r.sku}</td>
                       <td className="py-2">{r.out}</td>
                       <td className="py-2">{r.returned}</td>
-                      <td className={`py-2 font-bold ${bal > 0 ? "text-warning" : "text-verified"}`}>{bal}</td>
+                      <td
+                        className={`py-2 font-bold ${bal > 0 ? "text-warning" : "text-verified"}`}
+                      >
+                        {bal}
+                      </td>
                     </tr>
                   );
                 })}

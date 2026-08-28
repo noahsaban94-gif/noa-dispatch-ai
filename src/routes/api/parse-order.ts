@@ -3,7 +3,10 @@ import { z } from "zod";
 import { parseOrderText, toWebhookPayload } from "@/lib/parseOrder";
 import { NOA_MISSING_DATA_REPLY } from "@/lib/mockData";
 
-const Body = z.object({ text: z.string().min(2).max(2000), orderId: z.string().max(32).optional() });
+const Body = z.object({
+  text: z.string().min(2).max(2000),
+  orderId: z.string().max(32).optional(),
+});
 
 export const Route = createFileRoute("/api/parse-order")({
   server: {

@@ -78,7 +78,10 @@ function OcrStudio() {
   function pos(e: React.PointerEvent<HTMLCanvasElement>) {
     const c = canvasRef.current!;
     const r = c.getBoundingClientRect();
-    return { x: ((e.clientX - r.left) / r.width) * c.width, y: ((e.clientY - r.top) / r.height) * c.height };
+    return {
+      x: ((e.clientX - r.left) / r.width) * c.width,
+      y: ((e.clientY - r.top) / r.height) * c.height,
+    };
   }
 
   function pushSnapshot() {
@@ -183,7 +186,11 @@ function OcrStudio() {
       await fetch("/api/save-annotated-doc", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ noteId: note.id, orderId: order.id, image: dataUrl.slice(0, 64) + "..." }),
+        body: JSON.stringify({
+          noteId: note.id,
+          orderId: order.id,
+          image: dataUrl.slice(0, 64) + "...",
+        }),
       });
     } catch {
       /* offline */
@@ -315,7 +322,9 @@ function OcrStudio() {
                     <tr key={l.sku} className="border-t border-border/60">
                       <td className="py-2">
                         {l.name}
-                        <span className="block text-[10px] text-muted-foreground">מק״ט {l.sku}</span>
+                        <span className="block text-[10px] text-muted-foreground">
+                          מק״ט {l.sku}
+                        </span>
                       </td>
                       <td className="py-2">{l.qty}</td>
                       <td className="py-2">{supplied}</td>

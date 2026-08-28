@@ -215,9 +215,23 @@ export function calculateDeposits(lines: OrderLine[], directDrop: boolean): Orde
 
   const out: OrderLine[] = [];
   if (pallets > 0)
-    out.push({ sku: DEPOSIT_PALLET, name: "פקדון משטח", qty: pallets, unit: "יח'", warehouse: "4", deposit: true });
+    out.push({
+      sku: DEPOSIT_PALLET,
+      name: "פקדון משטח",
+      qty: pallets,
+      unit: "יח'",
+      warehouse: "4",
+      deposit: true,
+    });
   if (bigBags > 0)
-    out.push({ sku: DEPOSIT_BIGBAG, name: "פקדון ביג בג", qty: bigBags, unit: "יח'", warehouse: "4", deposit: true });
+    out.push({
+      sku: DEPOSIT_BIGBAG,
+      name: "פקדון ביג בג",
+      qty: bigBags,
+      unit: "יח'",
+      warehouse: "4",
+      deposit: true,
+    });
   return out;
 }
 
@@ -225,7 +239,7 @@ export function calculateDeposits(lines: OrderLine[], directDrop: boolean): Orde
 export function toWebhookPayload(parsed: ParsedOrder, orderId: string) {
   return {
     source: "סידור נועה AI",
-    org: "ח. סבן חומרי בניין בע\"מ",
+    org: 'ח. סבן חומרי בניין בע"מ',
     orderId,
     customer: {
       name: parsed.customerName,
@@ -233,7 +247,11 @@ export function toWebhookPayload(parsed: ParsedOrder, orderId: string) {
       address: parsed.address,
       city: parsed.city,
     },
-    delivery: { date: parsed.deliveryDate, time: parsed.deliveryTime, directDrop: parsed.directDrop },
+    delivery: {
+      date: parsed.deliveryDate,
+      time: parsed.deliveryTime,
+      directDrop: parsed.directDrop,
+    },
     warehouses: parsed.warehouses,
     items: [...parsed.lines, ...parsed.deposits].map((l) => ({
       sku: l.sku,

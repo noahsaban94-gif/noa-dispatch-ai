@@ -38,8 +38,7 @@ export const Route = createFileRoute("/chat")({
   component: ChatHub,
 });
 
-const EXAMPLE =
-  "תוציא לבוקטוס 40 שקי מלט ו-6 טיט בלות לעמית בהרצוג כפר סבא מחר ב-8 בבוקר";
+const EXAMPLE = "תוציא לבוקטוס 40 שקי מלט ו-6 טיט בלות לעמית בהרצוג כפר סבא מחר ב-8 בבוקר";
 
 function nowTime() {
   return new Date().toLocaleTimeString("he-IL", { hour: "2-digit", minute: "2-digit" });
@@ -55,7 +54,10 @@ function ChatHub() {
   const [listening, setListening] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
 
-  const orderId = useMemo(() => `SB-${Math.floor(24090 + Math.random() * 90)}`, [parsed]);
+  const orderId = useMemo(
+    () => (parsed ? `SB-${Math.floor(24090 + Math.random() * 90)}` : "SB-24091"),
+    [parsed],
+  );
   const driver = DRIVERS.find((d) => d.id === driverId)!;
 
   function send() {
@@ -106,7 +108,10 @@ function ChatHub() {
   }
 
   return (
-    <AppShell title="מוקד שיגור וואטסאפ" subtitle="פינג-פונג עם נועה AI · פירוק הזמנות ושיגור לנהגים">
+    <AppShell
+      title="מוקד שיגור וואטסאפ"
+      subtitle="פינג-פונג עם נועה AI · פירוק הזמנות ושיגור לנהגים"
+    >
       <div className="grid gap-4 xl:grid-cols-[240px_1fr_360px]">
         {/* Sidebar */}
         <GlassCard className="xl:max-h-[76vh] xl:overflow-y-auto">
@@ -178,7 +183,10 @@ function ChatHub() {
 
           <div className="flex-1 space-y-3 overflow-y-auto py-4 scroll-thin">
             {messages.map((m) => (
-              <div key={m.id} className={`flex ${m.from === "rami" ? "justify-start" : "justify-end"}`}>
+              <div
+                key={m.id}
+                className={`flex ${m.from === "rami" ? "justify-start" : "justify-end"}`}
+              >
                 <div
                   className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
                     m.from === "rami"
@@ -310,7 +318,9 @@ function ChatHub() {
                 {dispatched ? (
                   <div className="space-y-2">
                     <div className="rounded-xl border border-whatsapp/35 bg-whatsapp/10 p-3">
-                      <pre className="whitespace-pre-wrap text-[11px] leading-relaxed">{dispatched}</pre>
+                      <pre className="whitespace-pre-wrap text-[11px] leading-relaxed">
+                        {dispatched}
+                      </pre>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
                       <a

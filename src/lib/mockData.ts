@@ -93,7 +93,7 @@ export const DEPOSIT_BIGBAG = "60002";
 export const SKUS: Sku[] = [
   {
     sku: "10120",
-    name: "שק מלט נשר 50 ק\"ג",
+    name: 'שק מלט נשר 50 ק"ג',
     unit: "שק",
     warehouse: "4",
     weightKg: 50,
@@ -130,7 +130,7 @@ export const SKUS: Sku[] = [
   },
   {
     sku: "10450",
-    name: "בלוק איטונג 25 ס\"מ",
+    name: 'בלוק איטונג 25 ס"מ',
     unit: "משטח",
     warehouse: "4",
     weightKg: 900,
@@ -139,7 +139,7 @@ export const SKUS: Sku[] = [
   },
   {
     sku: "10520",
-    name: "ברזל זיון קוטר 12 מ\"מ",
+    name: 'ברזל זיון קוטר 12 מ"מ',
     unit: "מטר",
     warehouse: "4",
     weightKg: 1,
@@ -310,9 +310,31 @@ export const MOCK_ORDERS: Order[] = [
     address: "הרצוג 14",
     city: "כפר סבא",
     lines: [
-      { sku: "10120", name: 'שק מלט נשר 50 ק"ג', qty: 40, unit: "שק", warehouse: "4", supplied: 40 },
-      { sku: "10240", name: "טיט מוכן בלות (בייגלה)", qty: 6, unit: "בלה", warehouse: "4", supplied: 6 },
-      { sku: DEPOSIT_PALLET, name: "פקדון משטח", qty: 2, unit: "יח'", warehouse: "4", deposit: true, supplied: 2 },
+      {
+        sku: "10120",
+        name: 'שק מלט נשר 50 ק"ג',
+        qty: 40,
+        unit: "שק",
+        warehouse: "4",
+        supplied: 40,
+      },
+      {
+        sku: "10240",
+        name: "טיט מוכן בלות (בייגלה)",
+        qty: 6,
+        unit: "בלה",
+        warehouse: "4",
+        supplied: 6,
+      },
+      {
+        sku: DEPOSIT_PALLET,
+        name: "פקדון משטח",
+        qty: 2,
+        unit: "יח'",
+        warehouse: "4",
+        deposit: true,
+        supplied: 2,
+      },
     ],
     warehouses: ["4"],
     driverId: "hikmat",
@@ -328,8 +350,23 @@ export const MOCK_ORDERS: Order[] = [
     address: "רחוב ההסתדרות 8",
     city: "רעננה",
     lines: [
-      { sku: "10310", name: "חול ים ביג בג 1 טון", qty: 4, unit: "ביג בג", warehouse: "4", supplied: 3 },
-      { sku: DEPOSIT_BIGBAG, name: "פקדון ביג בג", qty: 4, unit: "יח'", warehouse: "4", deposit: true, supplied: 3 },
+      {
+        sku: "10310",
+        name: "חול ים ביג בג 1 טון",
+        qty: 4,
+        unit: "ביג בג",
+        warehouse: "4",
+        supplied: 3,
+      },
+      {
+        sku: DEPOSIT_BIGBAG,
+        name: "פקדון ביג בג",
+        qty: 4,
+        unit: "יח'",
+        warehouse: "4",
+        deposit: true,
+        supplied: 3,
+      },
     ],
     warehouses: ["4"],
     driverId: "ali",
@@ -348,7 +385,14 @@ export const MOCK_ORDERS: Order[] = [
     lines: [
       { sku: "10520", name: 'ברזל זיון קוטר 12 מ"מ', qty: 1200, unit: "מטר", warehouse: "4" },
       { sku: "10450", name: 'בלוק איטונג 25 ס"מ', qty: 6, unit: "משטח", warehouse: "4" },
-      { sku: DEPOSIT_PALLET, name: "פקדון משטח", qty: 6, unit: "יח'", warehouse: "4", deposit: true },
+      {
+        sku: DEPOSIT_PALLET,
+        name: "פקדון משטח",
+        qty: 6,
+        unit: "יח'",
+        warehouse: "4",
+        deposit: true,
+      },
     ],
     warehouses: ["4"],
     driverId: "external",
@@ -401,7 +445,14 @@ export const MOCK_ORDERS: Order[] = [
     city: "כפר סבא",
     lines: [
       { sku: "10318", name: "חצץ דק ביג בג 1 טון", qty: 8, unit: "ביג בג", warehouse: "4" },
-      { sku: DEPOSIT_BIGBAG, name: "פקדון ביג בג", qty: 8, unit: "יח'", warehouse: "4", deposit: true },
+      {
+        sku: DEPOSIT_BIGBAG,
+        name: "פקדון ביג בג",
+        qty: 8,
+        unit: "יח'",
+        warehouse: "4",
+        deposit: true,
+      },
     ],
     warehouses: ["4"],
     driverId: "hikmat",
@@ -420,7 +471,13 @@ export interface DepositBalanceRow {
 }
 
 export const DEPOSIT_BALANCE: DepositBalanceRow[] = [
-  { customerName: "בוקטוס בנייה ופיתוח", sku: DEPOSIT_PALLET, item: "פקדון משטח", out: 34, returned: 26 },
+  {
+    customerName: "בוקטוס בנייה ופיתוח",
+    sku: DEPOSIT_PALLET,
+    item: "פקדון משטח",
+    out: 34,
+    returned: 26,
+  },
   { customerName: "א.ע. הנדסה", sku: DEPOSIT_BIGBAG, item: "פקדון ביג בג", out: 22, returned: 18 },
   { customerName: "שפיר הנדסה", sku: DEPOSIT_PALLET, item: "פקדון משטח", out: 48, returned: 48 },
   { customerName: "דניה סיבוס", sku: DEPOSIT_BIGBAG, item: "פקדון ביג בג", out: 15, returned: 9 },
@@ -439,14 +496,14 @@ export const ALERTS: Alert[] = [
     id: "a1",
     level: "danger",
     title: "אי התאמת פקדונות",
-    detail: "א.ע. הנדסה — הוזמנו 4 ביג בג, סופקו 3. פער פקדון מק\"ט 60002.",
+    detail: 'א.ע. הנדסה — הוזמנו 4 ביג בג, סופקו 3. פער פקדון מק"ט 60002.',
     orderId: "SB-24082",
   },
   {
     id: "a2",
     level: "warning",
     title: "חוסר מאושר",
-    detail: "חסר ביג בג חול ים אחד — אושר טלפונית ע\"י אשרף.",
+    detail: 'חסר ביג בג חול ים אחד — אושר טלפונית ע"י אשרף.',
     orderId: "SB-24082",
   },
   {
@@ -476,10 +533,30 @@ export interface ChatThread {
 export const NOA_AVATAR = "https://i.ibb.co/whtMgBNC/Gemini-Generated-Image-2.png";
 
 export const CHAT_THREADS: ChatThread[] = [
-  { id: "noa", name: "נועה AI · סדרנית ראשית", avatar: NOA_AVATAR, last: "מוכנה לשיגור, ראמי אחי אהובי 🚚", time: "07:38", unread: 2 },
+  {
+    id: "noa",
+    name: "נועה AI · סדרנית ראשית",
+    avatar: NOA_AVATAR,
+    last: "מוכנה לשיגור, ראמי אחי אהובי 🚚",
+    time: "07:38",
+    unread: 2,
+  },
   { id: "rami", name: "ראמי סבן", last: "תעלי את בוקטוס לשמונה", time: "07:31", accent: "muted" },
-  { id: "hikmat", name: "חכמת 🚚 (משאית 1)", last: "יצאתי מהחרש, 40 מלט על המשטחים", time: "07:22", accent: "hikmat" },
-  { id: "ali", name: "עלי 🚛 (משאית 2)", last: "נפרק ברעננה, חסר ביג בג", time: "07:05", unread: 1, accent: "ali" },
+  {
+    id: "hikmat",
+    name: "חכמת 🚚 (משאית 1)",
+    last: "יצאתי מהחרש, 40 מלט על המשטחים",
+    time: "07:22",
+    accent: "hikmat",
+  },
+  {
+    id: "ali",
+    name: "עלי 🚛 (משאית 2)",
+    last: "נפרק ברעננה, חסר ביג בג",
+    time: "07:05",
+    unread: 1,
+    accent: "ali",
+  },
   { id: "moked", name: "מוקד סבן", last: "תעודה 88214 נסרקה", time: "06:58", accent: "muted" },
 ];
 
@@ -516,8 +593,21 @@ export interface DeliveryNote {
 }
 
 export const DELIVERY_NOTES: DeliveryNote[] = [
-  { id: "88214", orderId: "SB-24082", customerName: "א.ע. הנדסה", driver: "עלי", date: "28/08/2026", verifiedHours: "1.5 ש' המתנה" },
-  { id: "88215", orderId: "SB-24081", customerName: "בוקטוס בנייה ופיתוח", driver: "חכמת", date: "28/08/2026" },
+  {
+    id: "88214",
+    orderId: "SB-24082",
+    customerName: "א.ע. הנדסה",
+    driver: "עלי",
+    date: "28/08/2026",
+    verifiedHours: "1.5 ש' המתנה",
+  },
+  {
+    id: "88215",
+    orderId: "SB-24081",
+    customerName: "בוקטוס בנייה ופיתוח",
+    driver: "חכמת",
+    date: "28/08/2026",
+  },
 ];
 
 export const NOA_MISSING_DATA_REPLY =

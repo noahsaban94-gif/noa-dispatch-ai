@@ -53,7 +53,9 @@ function MatrixBoard() {
 
   function unassign(id: string) {
     setOrders((prev) =>
-      prev.map((o) => (o.id === id ? { ...o, driverId: null, slot: null, status: STATUS_RESET } : o)),
+      prev.map((o) =>
+        o.id === id ? { ...o, driverId: null, slot: null, status: STATUS_RESET } : o,
+      ),
     );
   }
 

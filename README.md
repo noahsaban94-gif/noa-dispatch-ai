@@ -22,7 +22,7 @@ Act as a Principal Full-Stack Engineer & Lead UI/UX Architect. Build a productio
 
   - Strict Rule (No Hallucination): If critical logistics data is missing:
 
-    *"אהובי ראמי לא הגיע לנקודה זו עדיין... מסכן שלי כמה הוא יכול להספיק!! רחמנות. אבל אשמח לשלוח לו מייל עם השאלה. איך אני יכולה לעזור לך עכשיו, ראמי אחי אהובי? 🚚 באדיבות נועה ❤️"*
+    _"אהובי ראמי לא הגיע לנקודה זו עדיין... מסכן שלי כמה הוא יכול להספיק!! רחמנות. אבל אשמח לשלוח לו מייל עם השאלה. איך אני יכולה לעזור לך עכשיו, ראמי אחי אהובי? 🚚 באדיבות נועה ❤️"_
 
   - Any change in existing order immediately resets the status to: `"מועד האספקה מתאפס - בבדיקה מחדש"`.
 

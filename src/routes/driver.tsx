@@ -61,7 +61,10 @@ function DriverPwa() {
   function point(e: React.PointerEvent<HTMLCanvasElement>) {
     const c = canvasRef.current!;
     const r = c.getBoundingClientRect();
-    return { x: ((e.clientX - r.left) / r.width) * c.width, y: ((e.clientY - r.top) / r.height) * c.height };
+    return {
+      x: ((e.clientX - r.left) / r.width) * c.width,
+      y: ((e.clientY - r.top) / r.height) * c.height,
+    };
   }
 
   function down(e: React.PointerEvent<HTMLCanvasElement>) {
@@ -105,7 +108,9 @@ function DriverPwa() {
         </div>
         <span
           className={`rounded-full border px-2.5 py-1 text-[10px] font-semibold ${
-            synced ? "border-verified/40 bg-verified/12 text-verified" : "border-warning/40 bg-warning/12 text-warning"
+            synced
+              ? "border-verified/40 bg-verified/12 text-verified"
+              : "border-warning/40 bg-warning/12 text-warning"
           }`}
         >
           {synced ? "🟢 מסונכרן" : "🟠 ממתין לסנכרון"}
@@ -146,7 +151,9 @@ function DriverPwa() {
               {mission.address}, {mission.city} · {mission.slot ?? "—"}
             </p>
           </div>
-          <span className="rounded-lg border border-border px-2 py-1 text-[10px]">{mission.id}</span>
+          <span className="rounded-lg border border-border px-2 py-1 text-[10px]">
+            {mission.id}
+          </span>
         </div>
 
         <div className="mt-3 grid grid-cols-2 gap-2">
@@ -224,7 +231,11 @@ function DriverPwa() {
           />
         </label>
         {photo ? (
-          <img src={photo} alt="תעודת משלוח שצולמה" className="mt-2 w-full rounded-xl border border-border" />
+          <img
+            src={photo}
+            alt="תעודת משלוח שצולמה"
+            className="mt-2 w-full rounded-xl border border-border"
+          />
         ) : null}
 
         <button

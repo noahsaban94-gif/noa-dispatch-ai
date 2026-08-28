@@ -87,7 +87,9 @@ export function AppShell({
         <div className="mb-4 flex flex-wrap items-end gap-3">
           <div className="me-auto">
             <h2 className="panel-title text-xl md:text-2xl">{title}</h2>
-            {subtitle ? <p className="mt-1 text-xs text-muted-foreground md:text-sm">{subtitle}</p> : null}
+            {subtitle ? (
+              <p className="mt-1 text-xs text-muted-foreground md:text-sm">{subtitle}</p>
+            ) : null}
           </div>
           {actions}
         </div>
