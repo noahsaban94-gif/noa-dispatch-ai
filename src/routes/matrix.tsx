@@ -30,7 +30,7 @@ export const Route = createFileRoute("/matrix")({
       },
     ],
   }),
-  component: MatrixBoard;
+  component: MatrixBoard,
 });
 
 function MatrixBoard() {
